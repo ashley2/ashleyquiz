@@ -2,6 +2,8 @@
 
 $(document).ready(init);
 
+
+
 var questionPool =[ {
   question:'What college did Ashley graduate from?',
   options: ['Indiana University of Pennsyvania','Virginia Tech','James Madison','Radford']
@@ -32,18 +34,18 @@ function init() {
     var $questOpt = $('.template').clone();
     $questOpt.removeClass('template');
 
-
+    var $input = $questOpt.find('input');
     var $question = $questOpt.find('.questionDiv');
-    var $option = $questOpt.find('label');
+    var $label = $questOpt.find('label');
 
+    $input.attr('name','q' + i);
     $question.html(questionPool[i].question);
     var questionObj = questionPool[i];
-
     var newOptions = _.shuffle(questionObj.options);
+    
 
-    $option.each(function(j) {
-      $(this).text(newOptions[j])
-
+    $label.each(function(j) {
+      $(this).text(newOptions[j]);
     });
 
     appendArray.push($questOpt)
@@ -51,24 +53,46 @@ function init() {
   }
   var shuffledArr = _.shuffle(appendArray);
   $('#questions').append(shuffledArr);
+  $('.template').remove();
 
 
-  var correctAnswers = ['Virginia Tech', 'Green', 'Gamma Phi Beta', 'Virginia', 'Pizza', 'Serena']
+  $('form').on("submit", function(event){
+    event.preventDefault();
 
-  // $('input').click(function() {
+    var correctAnswers = ['Virginia Tech', 'Green', 'Gamma Phi Beta', 'Virginia', 'Pizza', 'Serena'];
+    var answerArr = [];
 
-  //   var radioValue = $('input:checked').val();
+    $('input:checked+label').each(function(){
+      answerArr.push($(this).text());
+    });
+
+    var score = 0;
+
+    for (var i = 0; i < answerArr.length; i++){
+      if (answerArr.indexOf(correctAnswers[i]) !== -1){
+        score++;
+
+      }
+    }
     
-  //   if(radioValue){
-  //     console.log(radioValue);
-  //   }
-  // });
+    swal({ title: "Results!",
+     text: "You got a " + score + " out of 6", 
+     type: "info",   showCancelButton: true,
+     confirmButtonColor: "#DD6B55",   confirmButtonText: "Play Again!",
+     cancelButtonText: "See Answers",
+     closeOnConfirm: true,
+     closeOnCancel: true },
+     function(isConfirm){   
+      if (isConfirm) {     
+        window.location.reload();
+      } else {     
+        if (answerArr.indexOf(correctAnswers[i]) === -1){
 
-// $('#getResults').click(function(){
+        }
 
-
-
-// });
+      } 
+    });
+  });
 
 
 

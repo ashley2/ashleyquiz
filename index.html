@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Quiz</title>
   <link href='https://fonts.googleapis.com/css?family=Raleway:200,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -15,32 +16,40 @@
   <br>
   <br>
 
-  <div id="questions">
+  <form>
+    <div id="questions">
 
-    <div class="question template">
-      <div class="questionDiv" id="question1"></div>
-      <div class="splitBox">
+      <div class="question template">
+        <div class="questionDiv" id="question1"></div>
+        <div class="splitBox">
 
-      </div>
-      <div class="splitBox">
-        <ul class="answers">
-        <input class="option" type="radio" name="q1" value="a">A. <label></label><br>
-          <input class="option" type="radio" name="q1" value="b">B. <label></label><br>
-          <input class="option" type="radio" name="q1" value="c">C. <label></label><br>
-          <input class="option" type="radio" name="q1" value="d">D. <label></label><br>
-        </ul>
-      </div>
-    </div>
+        </div>
+        <div class="splitBox">
+          <ul class="answers">
+            <div class="answerLine">
+              <input required class="option" type="radio" value="">A. <label></label></div><br>
+            <div class="answerLine">
+              <input required class="option" type="radio" value="">B. <label></label></div><br>
+            <div class="answerLine">
+              <input required class="option" type="radio" value="">C. <label></label></div><br>
+            <div class="answerLine">
+              <input required class="option" type="radio" value="">D. <label></label></div class="answerLine"><br>
+                  </ul>
+                </div>
+              </div>
 
-    <br>
+              <br>
 
-  </div>
+            </div>
+            <div id="bottomLine">
+            <button type="submit" id="getResults">See Your Results!</button>
+            </div>
+          </form>
 
-  <button id="getResults">See Your Results!</button>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.0/lodash.min.js"></script>
+          <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+          <script src="main.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.0/lodash.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="main.js"></script>
-
-</body>
-</html>
+        </body>
+        </html>

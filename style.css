@@ -1,4 +1,4 @@
-body {
+body, #getResults {
   font-family: 'Raleway', sans-serif; }
 
 #head {
@@ -21,6 +21,7 @@ body {
   margin: auto; }
 
 .question {
+  color: #9900ff;
   text-align: center;
   margin: auto;
   width: 80%; }
@@ -33,3 +34,38 @@ body {
 
 .template {
   display: none; }
+
+#bottomLine {
+  width: 100vw;
+  display: inline-block;
+  text-align: center; }
+  #bottomLine #getResults {
+    height: 80px;
+    margin: 0 auto;
+    display: block;
+    color: #00cc66;
+    background: transparent;
+    border: solid 5px  #00cc66;
+    font-size: 25px;
+    transition: border 1s ease, color 2s ease; }
+
+#getResults:hover,
+#getResults.hover {
+  border-color: #346392;
+  color: #346392; }
+
+#getResults:active,
+#getResults.active {
+  border-color: #27496d;
+  color: #27496d; }
+
+#getResults:focus {
+  outline: none; }
+
+.answerLine {
+  color: #9900ff;
+  margin: -5px;
+  transition: color 1s ease; }
+
+.answerLine:hover {
+  color: #0066cc; }
